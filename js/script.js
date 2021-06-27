@@ -31,9 +31,11 @@ function init() {
         // the text need to be read from local storage (last saved)
         var taskText = document.createTextNode("Hello");
         rowEl.appendChild(taskEl);
-        if (currentTime > i + 16) {
+
+        // check time if is past, present, or future to set background
+        if (currentTime > i + 8) {
             taskEl.setAttribute("class", "col-10 past");
-        } else if (currentTime === i + 16) {
+        } else if (currentTime === i + 8) {
             taskEl.setAttribute("class", "col-10 present");
         } else {
             taskEl.setAttribute("class", "col-10 future");
