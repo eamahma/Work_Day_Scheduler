@@ -1,9 +1,13 @@
 var workHours = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
 
-
 // Display Date in header section
 var weekDay = moment().format("ddd MMM Do, YYYY");
 $('#currentDay').text(weekDay);
+
+// get current time
+var currentTime = moment().hour();
+console.log(currentTime);
+
 
 // Initialize screen
 function init() {
@@ -18,7 +22,6 @@ function init() {
         var timeEl = document.createElement("div");
         var timeText = document.createTextNode(workHours[i]);
         timeEl.appendChild(timeText);
-//        document.getElementById("rows").appendChild(timeEl);
         rowEl.appendChild(timeEl);
         timeEl.setAttribute("class", "col-1 hour");
         timeEl.setAttribute("id", "time");
@@ -27,9 +30,14 @@ function init() {
         var taskEl = document.createElement("div");
         // the text need to be read from local storage (last saved)
         var taskText = document.createTextNode("Hello");
-//        document.getElementById("rows").appendChild(taskEl);
         rowEl.appendChild(taskEl);
-        taskEl.setAttribute("class", "col-10 future");
+        if (currentTime > i + 16) {
+            taskEl.setAttribute("class", "col-10 past");
+        } else if (currentTime === i + 16) {
+            taskEl.setAttribute("class", "col-10 present");
+        } else {
+            taskEl.setAttribute("class", "col-10 future");
+        }
         taskEl.appendChild(taskText);
 
         // create saveBtn column elements
