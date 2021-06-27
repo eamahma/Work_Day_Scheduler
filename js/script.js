@@ -18,7 +18,8 @@ function init() {
         var timeEl = document.createElement("div");
         var timeText = document.createTextNode(workHours[i]);
         timeEl.appendChild(timeText);
-        document.getElementById("rows").appendChild(timeEl);
+//        document.getElementById("rows").appendChild(timeEl);
+        rowEl.appendChild(timeEl);
         timeEl.setAttribute("class", "col-1 hour");
         timeEl.setAttribute("id", "time");
         
@@ -26,23 +27,21 @@ function init() {
         var taskEl = document.createElement("div");
         // the text need to be read from local storage (last saved)
         var taskText = document.createTextNode("Hello");
-        document.getElementById("rows").appendChild(taskEl);
+//        document.getElementById("rows").appendChild(taskEl);
+        rowEl.appendChild(taskEl);
         taskEl.setAttribute("class", "col-10 future");
         taskEl.appendChild(taskText);
 
         // create saveBtn column elements
-        // var saveEl = document.createElement("div");
-        // var saveText = document.createTextNode("save");
-        // document.getElementById("rows").appendChild(saveEl);
-        // saveEl.setAttribute("class", "col-1 saveBtn");
-        // saveEl.appendChild(saveText);
-        var saveEl = document.createElement("svg");
-        // var saveText = document.createTextNode("save");
-        document.getElementById("rows").appendChild(saveEl);
-        saveEl.setAttribute("height", "100px");
-        saveEl.setAttribute("width", "100px");
+        var saveEl = document.createElement("div");
+        rowEl.appendChild(saveEl);
         saveEl.setAttribute("class", "col-1 saveBtn");
-        // saveEl.appendChild(saveText);
+        saveEl.setAttribute("id", "button"); 
+        saveEl.setAttribute("style", "text-align: center;"); 
+        //adding font awsome icon for save button
+        var iconEl = document.createElement("i")
+        saveEl.appendChild(iconEl);
+        iconEl.setAttribute("class", "fas fa-save fa-2x"); 
     }
 }
 
