@@ -6,43 +6,6 @@ $('#currentDay').text(weekDay);
 
 // get current time
 var currentTime = moment().hour();
-// console.log(currentTime);
-
-// var saveEl = document.createElement("button");
-// var iconEl = document.createElement("i")
-
-
-// function setButtonId(input){
-//     switch(input) {
-//         case 0:
-//             iconEl.setAttribute("id", "button0");
-//             break;
-//         case 1:
-//             iconEl.setAttribute("id", "button1");
-//             break;
-//         case 2:
-//             iconEl.setAttribute("id", "button2");
-//             break;
-//         case 3:
-//             iconEl.setAttribute("id", "button3");
-//             break;
-//         case 4:
-//             iconEl.setAttribute("id", "button4");
-//             break;
-//         case 5:
-//             iconEl.setAttribute("id", "button5");
-//             break;
-//         case 6:
-//             iconEl.setAttribute("id", "button6");
-//             break;
-//         case 7:
-//             iconEl.setAttribute("id", "button7");
-//             break;
-//         case 8:
-//             iconEl.setAttribute("id", "button8");
-//             break;                        
-//     }
-// }
 
 // function to identify which save button clicked
 function replyClick(clicked_id) {
@@ -92,41 +55,50 @@ function init() {
         var iconEl = document.createElement("i")
         saveEl.appendChild(iconEl);
         iconEl.setAttribute("class", "fas fa-save fa-2x"); 
-//        setButtonId(i);
+        // set button id and function to save current task
         switch(i) {
             case 0:
+                taskEl.setAttribute("id", "task0");
                 iconEl.setAttribute("id", "button0");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 1:
+                taskEl.setAttribute("id", "task1");
                 iconEl.setAttribute("id", "button1");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 2:
+                taskEl.setAttribute("id", "task2");
                 iconEl.setAttribute("id", "button2");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 3:
+                taskEl.setAttribute("id", "task3");
                 iconEl.setAttribute("id", "button3");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 4:
+                taskEl.setAttribute("id", "task4");
                 iconEl.setAttribute("id", "button4");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 5:
+                taskEl.setAttribute("id", "task5");
                 iconEl.setAttribute("id", "button5");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 6:
+                taskEl.setAttribute("id", "task6");
                 iconEl.setAttribute("id", "button6");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 7:
+                taskEl.setAttribute("id", "task7");
                 iconEl.setAttribute("id", "button7");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 8:
+                taskEl.setAttribute("id", "task0");
                 iconEl.setAttribute("id", "button8");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;                        
