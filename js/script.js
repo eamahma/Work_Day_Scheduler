@@ -71,26 +71,30 @@ function displayTasks() {
     tasks = JSON.parse(localStorage.getItem("index")) || [];
     for (var i = 0; i < tasks.length; i++) {
         var task = tasks[i].value;
-        // console.log(task);
-        // if (i === 0) {
-        //     document.getElementById("task0").textContent = task;
-        // } else if (i === 1) {
-        //     document.getElementById("task1").textContent = task;
-        // } else if (i === 2) {
-        //     document.getElementById("task2").textContent = task;
-        // } else if (i === 3) {
-        //     document.getElementById("task3").textContent = task;
-        // } else if (i === 4) {
-        //     document.getElementById("task4").textContent = task;
-        // } else if (i === 5) {
-        //     document.getElementById("task5").textContent = task;
-        // } else if (i === 6) {
-        //     document.getElementById("task6").textContent = task;
-        // } else if (i === 7) {
-        //     document.getElementById("task7").textContent = task;
-        // } else if (i === 8) {      
-        //     document.getElementById("task7").textContent = task;
-        // }
+        var index = tasks[i].key;
+         console.log(index, task);
+
+        if (index === 0) {
+            document.getElementById("task0").textContent = task;
+        } else if (index === 1) {
+            document.getElementById("task1").textContent = task;
+        } else if (index === 2) {
+            document.getElementById("task2").textContent = task;
+        } else if (index === 3) {
+            document.getElementById("task3").textContent = task;
+        } else if (index === 4) {
+            document.getElementById("task4").textContent = task;
+        } else if (index === 5) {
+            document.getElementById("task5").textContent = task;
+        } else if (index === 6) {
+            document.getElementById("task6").textContent = task;
+        } else if (index === 7) {
+            document.getElementById("task7").textContent = task;
+        } else if (index === 8) {      
+            document.getElementById("task8").textContent = task;
+        }
+
+        return;
 
         //        document.getElementById("task0").textContent = task;
         // switch(i) {
@@ -167,9 +171,9 @@ function init() {
         rowEl.appendChild(taskEl);
 
         // check time if is past, present, or future to set background
-        if (currentTime > i + 8) {
+        if (currentTime > i + 9) {
             taskEl.setAttribute("class", "col-10 past");
-        } else if (currentTime === i + 8) {
+        } else if (currentTime === i + 9) {
             taskEl.setAttribute("class", "col-10 present");
         } else {
             taskEl.setAttribute("class", "col-10 future");
