@@ -7,9 +7,140 @@ $('#currentDay').text(weekDay);
 // get current time
 var currentTime = moment().hour();
 
+function storeTask(index, content) {
+    var taskText = content.trim();
+    if (taskText !== "") {
+        var tasks = [];
+        tasks = JSON.parse(localStorage.getItem("index")) || [];
+        var currentTask = {
+            key: index,
+            value: taskText
+        }
+        tasks.push(currentTask);
+        localStorage.setItem("index", JSON.stringify(tasks));
+    }
+    console.log(currentTask);
+}
+
 // function to identify which save button clicked
 function replyClick(clicked_id) {
-    console.log(clicked_id);
+    // console.log(clicked_id);
+    var taskText = "";
+    switch(clicked_id) {
+        case 'button0':
+            taskText = document.getElementById("task0").value;
+            storeTask(0, taskText);
+            break;
+        case 'button1':
+            taskText = document.getElementById("task1").value;
+            storeTask(1, taskText);
+            break;    
+        case 'button2':
+            taskText = document.getElementById("task2").value;
+            storeTask(2, taskText);
+            break;
+        case 'button3':
+            taskText = document.getElementById("task3").value;
+            storeTask(3, taskText);
+            break;
+        case 'button4':
+            taskText = document.getElementById("task4").value;
+            storeTask(4, taskText);
+            break;    
+        case 'button5':
+            taskText = document.getElementById("task5").value;
+            storeTask(5, taskText);
+            break;
+        case 'button6':
+            taskText = document.getElementById("task6").value;
+            storeTask(6, taskText);
+            break;    
+        case 'button7':
+            taskText = document.getElementById("task7").value;
+            storeTask(7, taskText);
+            break;            
+        case 'button8':
+            taskText = document.getElementById("task8").value;
+            storeTask(8, taskText);
+            break;
+    }
+}
+
+function displayTasks() {
+    var tasks = [];
+    tasks = JSON.parse(localStorage.getItem("index")) || [];
+    for (var i = 0; i < tasks.length; i++) {
+        var task = tasks[i].value;
+        // console.log(task);
+        // if (i === 0) {
+        //     document.getElementById("task0").textContent = task;
+        // } else if (i === 1) {
+        //     document.getElementById("task1").textContent = task;
+        // } else if (i === 2) {
+        //     document.getElementById("task2").textContent = task;
+        // } else if (i === 3) {
+        //     document.getElementById("task3").textContent = task;
+        // } else if (i === 4) {
+        //     document.getElementById("task4").textContent = task;
+        // } else if (i === 5) {
+        //     document.getElementById("task5").textContent = task;
+        // } else if (i === 6) {
+        //     document.getElementById("task6").textContent = task;
+        // } else if (i === 7) {
+        //     document.getElementById("task7").textContent = task;
+        // } else if (i === 8) {      
+        //     document.getElementById("task7").textContent = task;
+        // }
+
+        //        document.getElementById("task0").textContent = task;
+        // switch(i) {
+        //     case 0:
+        //         if (task) {
+        //             document.getElementById("task0").textContent = task;
+        //         }
+        //         continue;
+        //     case 1:
+        //         if (task) {
+        //             document.getElementById("task1").textContent = task;
+        //         }
+        //         continue;
+        //     case 2:
+        //         if (task) {
+        //             document.getElementById("task2").textContent = task;
+        //         }
+        //         continue;
+        //     case 3:
+        //         if (task) {
+        //             document.getElementById("task3").textContent = task;
+        //         }
+        //         continue;
+        //     case 4:
+        //         if (task) {
+        //             document.getElementById("task4").textContent = task;
+        //         }
+        //         continue;
+        //     case 5:
+        //         if (task) {
+        //             document.getElementById("task5").textContent = task;
+        //         }
+        //         continue;
+        //     case 6:
+        //         if (task) {
+        //             document.getElementById("task6").textContent = task;
+        //         }
+        //         continue;
+        //     case 7:
+        //         if (task) {
+        //             document.getElementById("task7").textContent = task;
+        //         }
+        //         continue;
+        //     case 8:
+        //         if (task) {
+        //             document.getElementById("task8").textContent = task;
+        //         }
+        //         continue;
+        // } 
+    }
 }
 
 // Initialize screen
@@ -98,11 +229,12 @@ function init() {
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;
             case 8:
-                taskEl.setAttribute("id", "task0");
+                taskEl.setAttribute("id", "task8");
                 iconEl.setAttribute("id", "button8");
                 iconEl.setAttribute("onclick", "replyClick(this.id)");
                 break;                        
         }
+        displayTasks();
     }
 }
 
