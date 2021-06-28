@@ -6,8 +6,48 @@ $('#currentDay').text(weekDay);
 
 // get current time
 var currentTime = moment().hour();
-console.log(currentTime);
+// console.log(currentTime);
 
+// var saveEl = document.createElement("button");
+// var iconEl = document.createElement("i")
+
+
+// function setButtonId(input){
+//     switch(input) {
+//         case 0:
+//             iconEl.setAttribute("id", "button0");
+//             break;
+//         case 1:
+//             iconEl.setAttribute("id", "button1");
+//             break;
+//         case 2:
+//             iconEl.setAttribute("id", "button2");
+//             break;
+//         case 3:
+//             iconEl.setAttribute("id", "button3");
+//             break;
+//         case 4:
+//             iconEl.setAttribute("id", "button4");
+//             break;
+//         case 5:
+//             iconEl.setAttribute("id", "button5");
+//             break;
+//         case 6:
+//             iconEl.setAttribute("id", "button6");
+//             break;
+//         case 7:
+//             iconEl.setAttribute("id", "button7");
+//             break;
+//         case 8:
+//             iconEl.setAttribute("id", "button8");
+//             break;                        
+//     }
+// }
+
+// function to identify which save button clicked
+function replyClick(clicked_id) {
+    console.log(clicked_id);
+}
 
 // Initialize screen
 function init() {
@@ -27,9 +67,9 @@ function init() {
         timeEl.setAttribute("id", "time");
         
         // create time column elements
-        var taskEl = document.createElement("div");
+        var taskEl = document.createElement("textarea");
         // the text need to be read from local storage (last saved)
-        var taskText = document.createTextNode("Hello");
+        var taskText = document.createTextNode("");
         rowEl.appendChild(taskEl);
 
         // check time if is past, present, or future to set background
@@ -43,7 +83,7 @@ function init() {
         taskEl.appendChild(taskText);
 
         // create saveBtn column elements
-        var saveEl = document.createElement("div");
+        var saveEl = document.createElement("button");
         rowEl.appendChild(saveEl);
         saveEl.setAttribute("class", "col-1 saveBtn");
         saveEl.setAttribute("id", "button"); 
@@ -52,7 +92,48 @@ function init() {
         var iconEl = document.createElement("i")
         saveEl.appendChild(iconEl);
         iconEl.setAttribute("class", "fas fa-save fa-2x"); 
+//        setButtonId(i);
+        switch(i) {
+            case 0:
+                iconEl.setAttribute("id", "button0");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 1:
+                iconEl.setAttribute("id", "button1");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 2:
+                iconEl.setAttribute("id", "button2");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 3:
+                iconEl.setAttribute("id", "button3");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 4:
+                iconEl.setAttribute("id", "button4");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 5:
+                iconEl.setAttribute("id", "button5");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 6:
+                iconEl.setAttribute("id", "button6");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 7:
+                iconEl.setAttribute("id", "button7");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;
+            case 8:
+                iconEl.setAttribute("id", "button8");
+                iconEl.setAttribute("onclick", "replyClick(this.id)");
+                break;                        
+        }
     }
 }
+
+
 
 init();
