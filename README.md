@@ -30,4 +30,9 @@ The following animation demonstrates the application functionality:
 
 ![A user clicks on slots on the color-coded calendar and edits the events.](./img/eamahma.github.io_Work_Day_Scheduler_.png)
 
+## Link to web page
+[Work Day Schedular](https://eamahma.github.io/Work_Day_Scheduler/)
+
+## Link to Github repository
+[Github page for Work Day Schedular](https://github.com/eamahma/Work_Day_Scheduler)
 

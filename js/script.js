@@ -2,6 +2,8 @@
 var weekDay = moment().format("ddd MMM Do, YYYY");
 $('#currentDay').text(weekDay);
 
+
+// I got my tutor - Daniel Sires - assistance in improving and debugging algorithms  
 // When document loaded ...
 $(document).ready(function(){
     // when saveBtn pressed
