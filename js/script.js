@@ -2,57 +2,60 @@
 var weekDay = moment().format("ddd MMM Do, YYYY");
 $('#currentDay').text(weekDay);
 
+$(document).ready(function() {
+    // work hours
+    const timeBlocks = [9, 10, 11, 12, 13, 14, 15, 16, 17];  
+    
 
-// I got my tutor - Daniel Sires - assistance in improving and debugging algorithms  
-// When document loaded ...
-$(document).ready(function(){
-    // when saveBtn pressed
+    // creating time blocks with unique ID
+    $.each(timeBlocks, function (i) {
+        $(".container").append("<div class='row time-block' id='"+timeBlocks[i]+"'></div>");
+        return;
+    });
+
+    // add time div, text area, and save button elements to row element
+    function addTimeBlocks(index){
+        $(".row").append("<div class='hour col-1'></div>");
+        $(".row").append("<textarea class='description col-10'></textarea>");
+        $(".row").append("<button class='saveBtn col-1'><i class='fas fa-save'></button>");
+        return;
+    }
+
+    addTimeBlocks();
+
+    // Set time lables to each time block
+    $("#9").children("div").text("9AM");
+    $("#10").children("div").text("10AM");
+    $("#11").children("div").text("11AM");
+    $("#12").children("div").text("12PM");
+    $("#13").children("div").text("1PM");
+    $("#14").children("div").text("2PM");
+    $("#15").children("div").text("3PM");
+    $("#16").children("div").text("4PM");
+    $("#17").children("div").text("5PM");
+
+    // read current time
+    var currentTime = moment().hour();
+
+    // set the time blocks color based on current time
+    $.each(timeBlocks, function (i) {
+        if (currentTime > timeBlocks [i]) {
+            $("#"+ timeBlocks[i]).children("textarea").addClass("past");    
+        } else if (currentTime === timeBlocks[i]) {
+            $("#"+ timeBlocks[i]).children("textarea").addClass("present");    
+        } else {
+            $("#"+ timeBlocks[i]).children("textarea").addClass("future");         
+        }
+        $("#"+ timeBlocks[i]).children("textarea").val(localStorage.getItem(timeBlocks[i]));
+    //    return;
+    });
+
     $(".saveBtn").on("click",function(){
         // get sibling to saveBtn -> .description (textbox) value
         var textValue = $(this).siblings(".description").val();
         // get parent attribute id (hour)
         var time = $(this).parent().attr("id");
-
         // store time and value into local storage
         localStorage.setItem(time, textValue);
     })
-    
-    // call function to update time blocks color
-    function timeBlockUpdate() {
-        // get the current hour
-        var currentHour = moment().hours();
-        // for each timeblock ...
-        $(".time-block").each(function(){
-            // get row element id and convert to int
-            var blockHour = parseInt($(this).attr("id"));
-
-            // if time block hour is in past
-            if (blockHour < currentHour) {
-                $(this).addClass("past");
-            // if time block is present
-            } else if (blockHour === currentHour) {
-                $(this).removeClass("past");
-                $(this).addClass("present");
-            // otherwise, is in future
-            } else {
-                $(this).removeClass("past");
-                $(this).removeClass("present");
-                $(this).addClass("future");                 
-            }
-        })
-    }
-
-    // call function to update time blocks color
-    timeBlockUpdate();
-
-    // get local storage value for each time block
-    $("#9 .description").val(localStorage.getItem("9"));
-    $("#10 .description").val(localStorage.getItem("10"));
-    $("#11 .description").val(localStorage.getItem("11"));
-    $("#12 .description").val(localStorage.getItem("12"));
-    $("#13 .description").val(localStorage.getItem("13"));
-    $("#14 .description").val(localStorage.getItem("14"));
-    $("#15 .description").val(localStorage.getItem("15"));
-    $("#16 .description").val(localStorage.getItem("16"));
-    $("#17 .description").val(localStorage.getItem("17"));
 })
